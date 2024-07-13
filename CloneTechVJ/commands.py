@@ -91,8 +91,12 @@ async def start(client, message):
             return await message.reply('<b><i>No such file exist.</b></i>')
         filesarr = []
         for file in files:
-            file_id = file.file_id
-            files_ = await get_file_details(file_id)
+            vj_file_id = file.file_id
+            k = await temp.BOT.send_cached_media(chat_id=PUBLIC_FILE_CHANNEL, file_id=vj_file_id)
+            vj = await client.get_messages(PUBLIC_FILE_CHANNEL, k.id)
+            mg = getattr(vj, vj.media.value)
+            file_id = mg.file_id
+            files_ = await get_file_details(vj_file_id)
             files1 = files_[0]
             title = '@VJ_Botz  ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))
             size=get_size(files1.file_size)
@@ -112,7 +116,7 @@ async def start(client, message):
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 caption=f_caption,
-                protect_content=True if pre == 'filep' else False,
+                protect_content=False,
                 reply_markup=reply_markup
             )
             filesarr.append(msg)
@@ -142,6 +146,10 @@ async def start(client, message):
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
+            k = await temp.BOT.send_cached_media(chat_id=PUBLIC_FILE_CHANNEL, file_id=file_id)
+            vj = await client.get_messages(PUBLIC_FILE_CHANNEL, k.id)
+            mg = getattr(vj, vj.media.value)
+            file_id = mg.file_id
             if cd["update_channel_link"] != None:
                 up = cd["update_channel_link"]
                 button = [[
@@ -187,6 +195,10 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(button)
     else:
         reply_markup=None
+    k = await temp.BOT.send_cached_media(chat_id=PUBLIC_FILE_CHANNEL, file_id=file_id)
+    vj = await client.get_messages(PUBLIC_FILE_CHANNEL, k.id)
+    m = getattr(vj, vj.media.value)
+    file_id = m.file_id
     msg = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
