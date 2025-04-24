@@ -10,7 +10,7 @@ from Script import script
 id_pattern = re.compile(r'^.\d+$')
 
 # Bot information
-SESSION = environ.get('SESSION', 'TechVJBot')
+SESSION = environ.get('SESSION', 'iPopkarnBot')
 API_ID = int(environ.get('API_ID', '15829854'))
 API_HASH = environ.get('API_HASH', 'effcefa1b8fb65aa2b3210c85c75121d')
 BOT_TOKEN = environ.get('BOT_TOKEN', "")
@@ -60,8 +60,8 @@ DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in enviro
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://TechnicalBichu:TechnicalBichu@cluster0.kfvjehl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")   # IF Multiple Database Is False Then Fill Only This Database Url.
-DATABASE_NAME = environ.get('DATABASE_NAME', "cluster")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'cluster')
+DATABASE_NAME = environ.get('DATABASE_NAME', "ipopkarn")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'ipopkarn')
 
 MULTIPLE_DATABASE = bool(environ.get('MULTIPLE_DATABASE', False)) # Set True or False
 
