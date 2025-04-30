@@ -67,7 +67,7 @@ async def start(client, message):
             ],[
                 InlineKeyboardButton('🔎 𝚂𝚎𝚊𝚛𝚌𝚑 𝙼𝚘𝚟𝚒𝚎𝚜 𝙾𝚛 𝚂𝚎𝚛𝚒𝚎𝚜 🔍', callback_data='about')
             ],[
-                InlineKeyboardButton('✅️ Jᴏɪɴ Uᴘᴅᴀᴛᴇ's Cʜᴀɴɴᴇʟ ✅️', url=CHNL_LNK)
+                InlineKeyboardButton('✅️ ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✅️', url=CHNL_LNK)
             ]]
         if CLONE_MODE == True:
             buttons.append([InlineKeyboardButton('ᴄʀᴇᴀᴛᴇ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
