@@ -112,7 +112,7 @@ USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 
 
 # Token Verification Info :
-VERIFY = bool(environ.get('VERIFY', False))
+VERIFY = bool(environ.get('VERIFY', True))
 VERIFY_SHORTLINK_URL = environ.get('VERIFY_SHORTLINK_URL', 'linkcents.com')
 VERIFY_SHORTLINK_API = environ.get('VERIFY_SHORTLINK_API', 'cc1b9bd7cb3eb653d991460a48c1395b89707ada')
 VERIFY_TUTORIAL = environ.get('VERIFY_TUTORIAL', 'https://youtube.com/shorts/TLDaTn8AZ9M?si=AJdDcB6s6Avk-8Dg')
